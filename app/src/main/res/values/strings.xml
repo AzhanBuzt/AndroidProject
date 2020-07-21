@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculator Demo</string>
+    <string name="FirstInput">Enter First Numbers</string>
+    <string name="SecondInput">Enter Second Numbers</string>
+    <string name="TradeMark">This Application has been created for study purpose by Ahmad</string>
+    <string name="ErrorFirstET">Please enter first value in editText</string>
+    <string name="ErrorSecondET">Please enter Second value in editText</string>
+    <string name="ErrorBoth">Hold on ! Please enter your input for calculation</string>
+    <string name="KeyMorning">Hey Good Morning</string>
+    <string name="KeyMidDay">Hey have a blessed day ahead !</string>
+    <string name="KeyEve">Hey Good Evening</string>
+</resources>
