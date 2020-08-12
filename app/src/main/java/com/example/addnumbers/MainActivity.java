@@ -1,11 +1,8 @@
 package com.example.addnumbers;
-import com.example.addnumbers.ConnectionDb;
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.speech.tts.TextToSpeech;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,14 +17,18 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     //creating object
     TextView tvResult;
     EditText etNum1, etNum2;
-    Button btnAdd,btnSub,btnMul,btnDiv,btnClear;
+    Button btnAdd,btnSub,btnMul,btnDiv,btnClear,btnHis;
     TextToSpeech t1;
+    public static TextView data;
 
 
     @Override
@@ -40,13 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         // initializing object
-
+        data = (TextView) findViewById(R.id.tvTrademark);
         tvResult = (TextView) findViewById(R.id.tvResult);
         etNum1 = (EditText) findViewById(R.id.etNum1);
         etNum2 = (EditText) findViewById(R.id.etNum2);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnSub = (Button) findViewById(R.id.btnSub);
         btnMul= (Button) findViewById(R.id.btnMul);
+        btnHis= (Button) findViewById(R.id.btnHistory);
         btnDiv=(Button) findViewById(R.id.btnDiv);
         btnClear=(Button) findViewById(R.id.btnClr);
         t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 ConnectionDb connectionDb = new ConnectionDb();
                 Connection connect = connectionDb.CONN();
                 if (connect == null) {
-                    getText2Voice("Not Connected to db");
+                    getText2Voice("Not Connected to database");
                 }
                 else{
                     try {
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             tvResult.setText(rs.getString("username"));
                             Log.e("", rs.getString("id") + "/" + rs.getString("username") + "/" + rs.getString("password"));
                         }
+                        connect.close();
                     }
                     catch (Exception ex)
                     {
@@ -85,6 +88,21 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnHis.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+FectData process= new FectData();
+process.execute();
+
+
+
+
+
+            }
+
+
+
+        });
         btnDiv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
