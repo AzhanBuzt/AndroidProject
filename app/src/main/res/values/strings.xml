@@ -2,6 +2,8 @@
     <string name="app_name">Calculator Demo</string>
     <string name="FirstInput">Enter First Numbers</string>
     <string name="SecondInput">Enter Second Numbers</string>
+    <string name="PasswordHint">Enter User Password</string>
+    <string name="IdHint">Enter User Id</string>
     <string name="TradeMark">This Application has been created for study purpose by Ahmad</string>
     <string name="ErrorFirstET">Please enter first value in editText</string>
     <string name="ErrorSecondET">Please enter Second value in editText</string>
@@ -9,4 +11,13 @@
     <string name="KeyMorning">Hey Good Morning</string>
     <string name="KeyMidDay">Hey have a blessed day ahead !</string>
     <string name="KeyEve">Hey Good Evening</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

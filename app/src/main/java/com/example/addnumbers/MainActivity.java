@@ -62,27 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ConnectionDb connectionDb = new ConnectionDb();
-                Connection connect = connectionDb.CONN();
-                if (connect == null) {
-                    getText2Voice("Not Connected to database");
-                }
-                else{
-                    try {
-                        String query = "select id,username,password from tbl_login";
-                        Statement stmt = connect.createStatement();
-                        ResultSet rs = stmt.executeQuery(query);
-                        while (rs.next()) {
-                            tvResult.setText(rs.getString("username"));
-                            Log.e("", rs.getString("id") + "/" + rs.getString("username") + "/" + rs.getString("password"));
-                        }
-                        connect.close();
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.e("Exception",ex.getMessage());
-                    }
-                }
+
 
             }
 
@@ -91,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btnHis.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-FectData process= new FectData();
+FectData process= new FectData("1");
 process.execute();
 
 
